@@ -1,4 +1,6 @@
-﻿namespace InvoiceApp.Forms
+﻿using InvoiceApp.Properties;
+
+namespace InvoiceApp.Forms
 {
     partial class BaseForm
     {
@@ -28,6 +30,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BaseForm));
             SuspendLayout();
             // 
             // BaseForm
@@ -35,6 +38,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "BaseForm";
             Text = "BaseForm";
             Load += BaseForm_Load;
