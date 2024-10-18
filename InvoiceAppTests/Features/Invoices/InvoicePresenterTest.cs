@@ -21,12 +21,12 @@ namespace InvoiceAppTests.Features.Invoices
             var mockedClient = HttpMockHelper.CreateClient(mockResponse, HttpStatusCode.OK);
             var invoiceService = new InvoiceService(mockedClient);
             var viewMock = new Mock<IInvoiceView>();
+            viewMock.SetupProperty(v => v.Invoices);
             var view = viewMock.Object;
 
             var invoicePresenter = new InvoicePresenter(view, invoiceService);
-
             await Task.Run(() =>
-            invoicePresenter.OnLoadFetchInvoices(new { }, EventArgs.Empty)
+                invoicePresenter.OnLoadFetchInvoices(new { }, EventArgs.Empty)
             );
             Assert.NotNull(view.Invoices);
             Assert.Equal(view.Invoices[0].Cuf, mockResponse[0].cuf);
