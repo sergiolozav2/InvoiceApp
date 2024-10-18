@@ -32,7 +32,6 @@
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DataGridViewInvoice));
             dataGridView1 = new DataGridView();
-            Detalles = new DataGridViewButtonColumn();
             DownloadPDF = new DataGridViewButtonColumn();
             pictureBox1 = new PictureBox();
             labelError = new Label();
@@ -56,7 +55,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Detalles, DownloadPDF });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { DownloadPDF });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
@@ -84,19 +83,6 @@
 
             dataGridView1.TabIndex = 0;
             dataGridView1.Visible = false;
-            // 
-            // Detalles
-            // 
-            Detalles.FlatStyle = FlatStyle.Flat;
-            Detalles.HeaderText = "Acción";
-            Detalles.MinimumWidth = 6;
-            Detalles.Name = "Detalles";
-            Detalles.ReadOnly = true;
-            Detalles.Resizable = DataGridViewTriState.True;
-            Detalles.SortMode = DataGridViewColumnSortMode.Automatic;
-            Detalles.Text = "Detalles";
-            Detalles.UseColumnTextForButtonValue = true;
-            Detalles.Width = 125;
             // 
             // DownloadPDF
             // 
@@ -147,7 +133,7 @@
             Controls.Add(labelError);
             Controls.Add(pictureBox1);
             Controls.Add(dataGridView1);
-            dataGridView1.CellClick += dataGridViewDownloadPDF_CellClick;
+            dataGridView1.CellClick += DataGridViewDownloadPDF_CellClick;
             Name = "DataGridViewInvoice";
             Size = new Size(464, 400);
             Load += OnLoadDataGrid;
@@ -162,7 +148,6 @@
         private DataGridView dataGridView1;
         private PictureBox pictureBox1;
         private Label labelError;
-        private DataGridViewButtonColumn Detalles;
         private DataGridViewButtonColumn DownloadPDF;
         private System.Windows.Forms.Timer timerFetchPolling;
     }

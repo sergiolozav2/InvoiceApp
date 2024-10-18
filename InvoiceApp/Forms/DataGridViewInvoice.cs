@@ -40,9 +40,8 @@ namespace InvoiceApp.Forms.Invoices
                     {
                         row.Height = 50;
                     }
-                    if (dataGridView1.Columns.Count > 7)
+                    if (dataGridView1.Columns.Count > 5)
                     {
-                    dataGridView1.Columns[1].DisplayIndex = 7;
                     dataGridView1.Columns[0].DisplayIndex = 6;
                     }
                 }
