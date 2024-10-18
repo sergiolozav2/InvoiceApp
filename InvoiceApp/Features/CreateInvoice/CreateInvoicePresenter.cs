@@ -34,6 +34,7 @@ namespace InvoiceApp.Features.CreateInvoice
             {
                 await _invoiceService.CreateInvoiceAsync(invoice);
                 _view.FetchCompleted = true;
+                _view.ErrorMessage = String.Empty;
             }
             catch (Exception ex)
             {

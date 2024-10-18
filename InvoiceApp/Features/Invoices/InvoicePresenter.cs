@@ -27,6 +27,7 @@ namespace InvoiceApp.Features.Invoices
             {
                 var invoices = await _invoiceService.GetInvoicesAsync();
                 _view.Invoices = invoices;
+                _view.ErrorMessage = string.Empty;
             }
             catch (Exception ex)
             {
@@ -50,6 +51,7 @@ namespace InvoiceApp.Features.Invoices
                     FileName = filePath,
                     UseShellExecute = true
                 });
+                _view.ErrorMessage = string.Empty;
             }
             catch (Exception ex)
             {
