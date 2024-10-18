@@ -4,6 +4,7 @@ using Moq.Protected;
 using System.Net.Http.Json;
 
 using InvoiceApp.Features.Invoices;
+using InvoiceApp.Models;
 using System.Net;
 
 namespace InvoiceAppTests.Features.Invoices
@@ -50,6 +51,25 @@ namespace InvoiceAppTests.Features.Invoices
             );
             Assert.Null(view.Invoices);
             Assert.NotEqual("", view.ErrorMessage);
+            Assert.False(view.IsLoading);
+        }
+
+        [Fact]
+        public async void TestLoadingVariable()
+        {
+            List<Invoice> mockResponse = [];
+
+            var mockedClient = HttpMockHelper.CreateClient(mockResponse, HttpStatusCode.OK);
+            var invoiceService = new InvoiceService(mockedClient);
+            var viewMock = new Mock<IInvoiceView>();
+            var view = viewMock.Object;
+
+            var invoicePresenter = new InvoicePresenter(view, invoiceService);
+            await Task.Run(() =>
+                            invoicePresenter.OnLoadFetchInvoices(new { }, EventArgs.Empty)
+            );
+            viewMock.VerifySet(v => v.IsLoading = true, Times.Once());
+
             Assert.False(view.IsLoading);
         }
     }
