@@ -13,9 +13,5 @@ namespace InvoiceApp.Features.CreateInvoice.Models
         required public string CustomerName { get; set; }
         required public List<Item> LineItems { get; set; }
 
-        public static explicit operator CreateInvoiceRequestDto(EventArgs v)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
