@@ -1,5 +1,4 @@
 # InvoiceApp
----
 
 Este es un proyecto de una aplicación de gestión de facturas construida con WinForms y .NET Core. La aplicación permite visualizar una lista de facturas, crear nuevas facturas y manejar los elementos de cada factura.
 
@@ -8,7 +7,6 @@ Además, utiliza un patrón MVP (Model-View-Presenter) y se conecta a una API medi
 ![](https://raw.githubusercontent.com/sergiolozav2/InvoiceApp/refs/heads/main/Demo/demo1.gif)
 
 ## Características
----
 - Muestra de facturas
 - Creación de facturas
 - Actualización constante de facturas (polling)
@@ -19,12 +17,10 @@ Además, utiliza un patrón MVP (Model-View-Presenter) y se conecta a una API medi
 - Manejo de errores
 
 ## Requisitos
----
 - .NET Core 8.0 o superior
 - API REST para gestión de facturas corriendo en http://localhost:5084
 
 ## Como ejecutar
----
 - Clonar el repositorio
 ```bash
   git clone https://github.com/sergiolozav2/InvoiceApp
@@ -39,7 +35,6 @@ Además, utiliza un patrón MVP (Model-View-Presenter) y se conecta a una API medi
 ```
 
 ## Como ejecutar tests
----
 - Ingresar al directorio
 ```bash
   cd InvoiceAppTests
@@ -50,7 +45,6 @@ Además, utiliza un patrón MVP (Model-View-Presenter) y se conecta a una API medi
 ```
 
 ## Arquitectura
----
 Se utilizó el patrón MVP para diseñar esta aplicación y facilitar el desarrollo de tests.
 
 ### Componentes del Patrón MVP
