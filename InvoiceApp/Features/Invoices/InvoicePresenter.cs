@@ -47,6 +47,7 @@ namespace InvoiceApp.Features.Invoices
             if(invoice.Status == 0)
             {
                 _view.ErrorMessage = "La factura no está aprobada todavía";
+                return;
             }
             try
             {
