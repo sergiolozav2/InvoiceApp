@@ -147,6 +147,7 @@
             Controls.Add(labelError);
             Controls.Add(pictureBox1);
             Controls.Add(dataGridView1);
+            dataGridView1.CellClick += dataGridViewDownloadPDF_CellClick;
             Name = "DataGridViewInvoice";
             Size = new Size(464, 400);
             Load += OnLoadDataGrid;

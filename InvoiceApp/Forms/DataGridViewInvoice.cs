@@ -59,7 +59,6 @@ namespace InvoiceApp.Forms.Invoices
                 labelError.Text = value;
             }
         }
-        public event EventHandler? HandleOnLoadFetchInvoices;
         private void OnLoadDataGrid(object sender, EventArgs e)
         {
             this.HandleOnLoadFetchInvoices?.Invoke(this, EventArgs.Empty);
@@ -70,6 +69,18 @@ namespace InvoiceApp.Forms.Invoices
             this.HandleOnLoadFetchInvoices?.Invoke(this, EventArgs.Empty);
         }
 
+        private void dataGridViewDownloadPDF_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (e.ColumnIndex == 1 && e.RowIndex >= 0 && dataGridView1.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
+            {
+                var invoice = (Invoice)dataGridView1.Rows[e.RowIndex].DataBoundItem;
+                this.HandleOnClickDownloadInvoicePDF?.Invoke(invoice.Cuf, EventArgs.Empty);
+            }
+        }
         private List<Invoice> DataGridInvoices { get; set; } = [];
+        public event EventHandler? HandleOnLoadFetchInvoices;
+        public event EventHandler? HandleOnClickDownloadInvoicePDF;
+
     }
 }
