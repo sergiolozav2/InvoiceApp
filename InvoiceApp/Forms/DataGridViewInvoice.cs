@@ -74,7 +74,7 @@ namespace InvoiceApp.Forms.Invoices
             if (e.RowIndex >= 0 && dataGridView1.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
             {
                 var invoice = (Invoice)dataGridView1.Rows[e.RowIndex].DataBoundItem;
-                this.HandleOnClickDownloadInvoicePDF?.Invoke(invoice.Cuf, EventArgs.Empty);
+                this.HandleOnClickDownloadInvoicePDF?.Invoke(invoice, EventArgs.Empty);
             }
         }
         private List<Invoice> DataGridInvoices { get; set; } = [];

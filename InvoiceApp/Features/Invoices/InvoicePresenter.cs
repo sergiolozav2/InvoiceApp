@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InvoiceApp.Models;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -42,10 +43,14 @@ namespace InvoiceApp.Features.Invoices
         public async void OnClickDownloadInvoicePDF(object? sender, EventArgs e)
         {
             if (sender == null) { throw new ApplicationException("sender shouldn't be null"); }
-            var cuf = (string)sender;
+            var invoice = (Invoice)sender;
+            if(invoice.Status == 0)
+            {
+                _view.ErrorMessage = "La factura no está aprobada todavía";
+            }
             try
             {
-                var filePath = await _invoiceService.GetInvoicePDFAsync(cuf);
+                var filePath = await _invoiceService.GetInvoicePDFAsync(invoice.Cuf);
                 Process.Start(new ProcessStartInfo
                 {
                     FileName = filePath,
