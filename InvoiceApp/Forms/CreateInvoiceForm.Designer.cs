@@ -39,6 +39,7 @@
             textBoxNit = new TextBox();
             label2 = new Label();
             labelDataGrid = new Label();
+            labelError = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridItems).BeginInit();
             SuspendLayout();
             // 
@@ -142,11 +143,22 @@
             labelDataGrid.TabIndex = 18;
             labelDataGrid.Text = "Items";
             // 
+            // labelError
+            // 
+            labelError.AutoSize = true;
+            labelError.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            labelError.ForeColor = Color.IndianRed;
+            labelError.Location = new Point(19, 395);
+            labelError.Name = "labelError";
+            labelError.Size = new Size(0, 20);
+            labelError.TabIndex = 19;
+            // 
             // CreateInvoiceForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(478, 515);
+            Controls.Add(labelError);
             Controls.Add(labelDataGrid);
             Controls.Add(textBoxNit);
             Controls.Add(label2);
@@ -178,5 +190,6 @@
         private TextBox textBoxNit;
         private Label label2;
         private Label labelDataGrid;
+        private Label labelError;
     }
 }

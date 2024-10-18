@@ -68,10 +68,10 @@ namespace InvoiceApp.Forms.Invoices
             this.HandleOnLoadFetchInvoices?.Invoke(this, EventArgs.Empty);
         }
 
-        private void dataGridViewDownloadPDF_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void DataGridViewDownloadPDF_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
-            if (e.ColumnIndex == 1 && e.RowIndex >= 0 && dataGridView1.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
+            if (e.ColumnIndex == -1) { return; }
+            if (e.RowIndex >= 0 && dataGridView1.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
             {
                 var invoice = (Invoice)dataGridView1.Rows[e.RowIndex].DataBoundItem;
                 this.HandleOnClickDownloadInvoicePDF?.Invoke(invoice.Cuf, EventArgs.Empty);
