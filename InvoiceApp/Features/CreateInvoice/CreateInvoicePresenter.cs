@@ -19,8 +19,9 @@ namespace InvoiceApp.Features.CreateInvoice
             _view.HandleOnClickCreateInvoice += HandleOnClickCreateInvoice;
 
         }
-        public async void HandleOnClickCreateInvoice(object sender, EventArgs e)
+        public async void HandleOnClickCreateInvoice(object? sender, EventArgs e)
         {
+            if (sender == null) { throw new ApplicationException("Sender event null"); }
             var invoice = (CreateInvoiceRequestDto)sender;
             try
             {

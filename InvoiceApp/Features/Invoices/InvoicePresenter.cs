@@ -20,7 +20,7 @@ namespace InvoiceApp.Features.Invoices
             _view.HandleOnClickDownloadInvoicePDF += OnClickDownloadInvoicePDF;
 
         }
-        public async void OnLoadFetchInvoices(object sender, EventArgs e)
+        public async void OnLoadFetchInvoices(object? sender, EventArgs e)
         {
             _view.IsLoading = true;
             try
