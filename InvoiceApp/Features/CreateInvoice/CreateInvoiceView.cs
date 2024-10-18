@@ -12,7 +12,7 @@ namespace InvoiceApp.Features.CreateInvoice
     {
         string CustomerName { get; }
         string Nit { get; }
-        List<Item> Items { get; set; }
+        List<Item> Items { set; }
         string ErrorMessage { get; set; }
         Boolean FetchCompleted {  get; set; }
         event EventHandler HandleOnClickCreateInvoice;
