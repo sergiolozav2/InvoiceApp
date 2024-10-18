@@ -56,7 +56,7 @@ namespace InvoiceApp.Features.Invoices
 
             if (!response.IsSuccessStatusCode)
             {
-                throw new HttpRequestException($"Error fetching invoice: '{cuf}'");
+                throw new HttpRequestException($"Error fetching invoice file: '{cuf}'");
             }
             var pdfStream = await response.Content.ReadAsStreamAsync();
             string filePath = Path.Combine(Path.GetTempPath(), $"Invoice_{cuf}.pdf");
