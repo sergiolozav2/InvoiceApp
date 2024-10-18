@@ -13,5 +13,7 @@ namespace InvoiceApp.Features.Invoices
         string ErrorMessage { get; set; }
         List<Invoice>? Invoices { get; set; }
         event EventHandler HandleOnLoadFetchInvoices;
+        event EventHandler HandleOnClickDownloadInvoicePDF;
+
     }
 }

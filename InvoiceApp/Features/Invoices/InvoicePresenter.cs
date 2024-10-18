@@ -16,6 +16,7 @@ namespace InvoiceApp.Features.Invoices
             _view = view;
             _invoiceService = invoiceService;
             _view.HandleOnLoadFetchInvoices += OnLoadFetchInvoices;
+            _view.HandleOnClickDownloadInvoicePDF += OnClickDownloadInvoicePDF;
 
         }
         public async void OnLoadFetchInvoices(object sender, EventArgs e)
@@ -33,6 +34,25 @@ namespace InvoiceApp.Features.Invoices
             finally
             {
                 _view.IsLoading = false;
+            }
+        }
+
+        public async void OnClickDownloadInvoicePDF(object? sender, EventArgs e)
+        {
+            if (sender == null) { throw new ApplicationException("sender shouldn't be null"); }
+            var cuf = (string)sender;
+            try
+            {
+                var filePath = await _invoiceService.GetInvoicePDFAsync(cuf);
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = filePath,
+                    UseShellExecute = true
+                });
+            }
+            catch (Exception ex)
+            {
+                _view.ErrorMessage = ex.Message;
             }
         }
     }

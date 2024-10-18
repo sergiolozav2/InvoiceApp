@@ -50,5 +50,22 @@ namespace InvoiceApp.Features.Invoices
             return result;
         }
 
+        public async Task<string> GetInvoicePDFAsync(string cuf)
+        {
+            var response = await _httpClient.GetAsync($"/api/invoices/{cuf}/pdf");
+
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new HttpRequestException($"Error fetching invoice: '{cuf}'");
+            }
+            var pdfStream = await response.Content.ReadAsStreamAsync();
+            string filePath = Path.Combine(Path.GetTempPath(), $"Invoice_{cuf}.pdf");
+            using (var fileStream = new FileStream(filePath, FileMode.Create, FileAccess.Write, FileShare.None))
+            {
+                await pdfStream.CopyToAsync(fileStream);
+            }
+
+            return filePath;
+        }
     }
 }
