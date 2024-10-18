@@ -46,6 +46,8 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
+            pictureBox1.MouseEnter += OnMouseEnter;
+            pictureBox1.MouseLeave += OnMouseLeave;
             // 
             // label1
             // 
@@ -61,6 +63,8 @@
             label1.TabIndex = 1;
             label1.Text = "label1";
             label1.TextAlign = ContentAlignment.MiddleLeft;
+            label1.MouseEnter += OnMouseEnter;
+            label1.MouseLeave += OnMouseLeave;
             // 
             // ButtonSidebar
             // 
@@ -71,6 +75,8 @@
             Name = "ButtonSidebar";
             Padding = new Padding(12, 0, 12, 0);
             Size = new Size(300, 45);
+            MouseEnter += OnMouseEnter;
+            MouseLeave += OnMouseLeave;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();

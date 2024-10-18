@@ -33,7 +33,23 @@ namespace InvoiceApp.Forms
         public Color OptionBackgroundColor
         {
             get { return BackColor; }
-            set { BackColor = value; }
+            set
+            {
+                BackColor = value;
+                CustomBackColor = value;
+            }
         }
+
+        private void OnMouseEnter(object sender, EventArgs e)
+        {
+            BackColor = Color.FromArgb(15, Color.Black);
+        }
+
+        private void OnMouseLeave(object sender, EventArgs e)
+        {
+            BackColor = CustomBackColor;
+        }
+
+        private Color CustomBackColor;
     }
 }
